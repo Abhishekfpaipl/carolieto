@@ -53,6 +53,10 @@ export default {
   opacity: 0;
 }
 
+#scroll::-webkit-scrollbar {
+  display: none;
+}
+
 .text-ellipsis2 {
   display: -webkit-box;
   -webkit-line-clamp: 2;
@@ -60,6 +64,7 @@ export default {
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
 .text-ellipsis3 {
   display: -webkit-box;
   -webkit-line-clamp: 3;

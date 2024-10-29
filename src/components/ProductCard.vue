@@ -1,7 +1,7 @@
 <template>
 
     <div class="container">
-        <div class="row row-cols-2 row-cols-md-4 row-cols-lg-4 g-3 my-5">
+        <div class="row row-cols-2 row-cols-md-4 row-cols-lg-4 g-3 my-5 justify-content-center">
             <div v-for="(product, index) in products" :key="index" class="col">
                 <router-link :to="'/product-detail/' + product.sid"
                     class="card h-100 product-card rounded-4 p-3 bg-light text-decoration-none">
@@ -16,9 +16,9 @@
                             style="max-height: 200px;">
                     </div>
                     <h5 class="text-uppercase mb-2">{{ product.name }}</h5>
-                    <div class="d-flex justify-content-between align-items-center mb-2">
+                    <div class="d-md-flex justify-content-between align-items-center mb-2">
                         <strong>₹ {{ product.price.toFixed(2) }} INR</strong>
-                        <div class="">
+                        <div class="small">
                             <i class="bi bi-star-fill text-warning"></i>
                             <i class="bi bi-star-fill text-warning"></i>
                             <i class="bi bi-star-fill text-warning"></i>
@@ -27,7 +27,7 @@
                         </div>
                     </div>
 
-                    <div v-if="product.color" class="d-flex gap-2 mb-3 justify-content-center">
+                    <div v-if="product.color" class="d-flex overflow-x-scroll gap-2 mb-3 justify-content-center" id="scroll">
                         <img v-for="(color, index) in product.color" :key="index" :src="color.image"
                             class="btn rounded-circle p-0 border-0" style="width:40px;height:40px;">
                     </div>
@@ -56,7 +56,7 @@ export default {
 
 <style scoped>
 .product-card {
-    max-width: 300px;
+    /* max-width: 300px; */
     transition: transform 0.2s;
 }
 
