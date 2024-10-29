@@ -2,7 +2,7 @@
     <!-- Mobile version starts -->
     <div class="" style="padding-top: 60px;overflow-x: hidden;">
         <div class="video-player">
-            <video ref="videoPlayer" autoplay loop style="width: 100%; height: 80vh;">
+            <video ref="videoPlayer" autoplay loop style="width: 100%; ">
                 <source src="https://carolieto.com/uploads/banner/1716011495_Carolieto Website Video.mp4">
                 <!-- <source src="https://buyer-video-in.urbanic.com/eva/6b3cc46ede954740865b2e887403f9c7.mp4"
                     type="video/ogg">
@@ -16,7 +16,7 @@
                 </button>
             </div>
         </div>
-        <div class="container my-5">
+        <!-- <div class="container my-5">
             <h2 class="display-5 text-uppercase" style="color: var(--bg-primary);">Our best sellers</h2>
             <div class="row row-cols-2 row-cols-md-4 row-cols-lg-6 g-3 my-5">
                 <div v-for="(product, index) in products" :key="index" class="col">
@@ -31,24 +31,27 @@
                     </router-link>
                 </div>
             </div>
-        </div>
+        </div> -->
+        <ProductCard />
         <div class="">
             <TextVideoSection />
         </div>
         <div class="">
-            <!-- <VideoMaskSection /> -->
+            <!-- <VideoMaskSection /> --> 
         </div>
     </div>
 </template>
 
 <script>
 // import VideoMaskSection from '@/components/VideoMaskSection.vue'
-import TextVideoSection from '@/components/TextVideoSection.vue'
+import TextVideoSection from '@/components/TextVideoSection.vue' 
+import ProductCard from '@/components/ProductCard.vue'
 export default {
     name: "HomePage",
     components: {
         // VideoMaskSection,
-        TextVideoSection,
+        TextVideoSection, 
+        ProductCard,
     },
     data() {
         return {

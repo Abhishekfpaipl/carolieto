@@ -5,22 +5,19 @@
             <div class="d-flex align-items-center">
                 <i data-bs-toggle="offcanvas" data-bs-target="#topSideMenu" aria-controls="topSideMenu"
                     class="bi bi-list fs-4 mx-2" style="color: var(--primary-color);"></i>
-                <!-- <router-link to="/search-page" class="d-flex">
-                    <i class="bi bi-search fs-4 mx-2 " style="color: var(--primary-color);"></i>
-                </router-link> -->
             </div>
             <router-link to="/" class="d-none d-lg-flex align-items-center text-decoration-none">
                 <img src="https://carolieto.com/uploads/logo.png" alt="Brand Lgo"
-                    style="width: 100px;object-fit: contain;">
+                    style="height: 44px;object-fit: contain;">
             </router-link>
             <router-link to="/" class="d-flex d-lg-none align-items-center text-decoration-none">
                 <img src="https://carolieto.com/uploads/logo.png" alt="Brand Logo"
-                    style="width: 100px;object-fit: contain;">
+                    style="height: 42px;object-fit: contain;">
             </router-link>
             <div class="d-flex">
                 <div class="text-center position-relative">
-                    <router-link to="/cart-page">
-                        <i class="bi bi-cart fs-4 mx-2" style="color: var(--primary-color);"></i>
+                    <router-link to="/search
+                        <i class="bi bi-search fs-4 mx-2" style="color: var(--primary-color);"></i>
                     </router-link>
                 </div>
             </div>
@@ -33,8 +30,6 @@
                 <div class="d-flex align-items-center">
                     <img src="https://carolieto.com/uploads/logo.png" alt="Brand Logo"
                         style="width: 100px;object-fit: contain;">
-                    <!-- <small class=" mb-0 ms-1 fw-bold" style=" color: var(--primary-color); letter-spacing: 2px">MAC
-                        HIDDLE</small> -->
                 </div>
                 <button type="button" class="fs-4 btn bi bi-x-lg " style="color: var(--primary-color); "
                     data-bs-dismiss="offcanvas" aria-label="Close">
@@ -70,7 +65,15 @@
                         <i class="bi bi-youtube"></i>
                     </a>
                 </div>
+
+                <div class="text-bg-dark py-2 d-flex flex-column justify-content-between px-md-4 mt-3">
+                    <p class="mb-0">All rights reserved</p>
+                    <a href="https://www.covisor.in" class="text-white text-decoration-none">Copyright &copy; Covisor
+                        Infotech Pvt
+                        Ltd</a>
+                </div>
             </div>
+
         </div>
 
     </div>
@@ -87,23 +90,23 @@ export default {
                 {
                     name: 'About Us',
                     icon: 'bi bi-arrow-right ',
-                    router: '/aboutUs'
+                    router: '/about-us'
                 },
                 {
-                    name: 'Account',
+                    name: 'Privacy Policy',
                     icon: 'bi bi-arrow-right ',
-                    router: '/myAccount'
+                    router: '/privacy-policy'
                 },
                 {
                     name: 'Support',
                     icon: 'bi bi-arrow-right ',
-                    router: '/faqs/customer-service'
+                    router: '/contact-us'
                 },
-                {
-                    name: 'Career',
-                    icon: 'bi bi-arrow-right ',
-                    router: '/career'
-                },
+                // {
+                //     name: 'Career',
+                //     icon: 'bi bi-arrow-right ',
+                //     router: '/career'
+                // },
             ],
 
         }

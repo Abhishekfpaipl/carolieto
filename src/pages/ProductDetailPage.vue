@@ -24,7 +24,8 @@
                         </div>
                     </div>
                 </div>
-                <p class="px-2 mb-0 text-start">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                <p v-if="product.info" class="text-start mb-0 px-2">{{ product.info }}</p>
+                <p v-else class="px-2 mb-0 text-start">Lorem ipsum dolor sit amet consectetur adipisicing elit.
                     Officiis animi eum repudiandae non molestias adipisci cupiditate numquam. Impedit
                     reprehenderit recusandae laborum fugit! Natus debitis accusamus obcaecati nobis quis,
                     reiciendis nihil facilis fugit quo eius non in ut quasi cum aspernatur dignissimos quisquam
@@ -57,11 +58,11 @@
                 </div>
 
                 <div class="bg-white my-2 p-2 d-md-block d-none">
-                    <button @click="addToCart"
+                    <button @click="enquiry()"
                         class="btn w-100 d-flex justify-content-center align-items-center text-center"
                         style="background-color: #FEBF00;">
-                        <i class="bi bi-cart fs-5"></i>
-                        <p class="text-center m-0 ms-2">Add to cart</p>
+                        <i class="bi bi-whatsapp fs-5"></i>
+                        <p class="text-center m-0 ms-2">Enquiry</p>
                     </button>
                 </div>
                 <ProductDetails :product="product"></ProductDetails>
@@ -75,12 +76,12 @@
     </div>
 
     <div class="d-md-none">
-        <div class="w-100 d-flex align-items-center position-fixed"
-            style="height: 63px; z-index: 10; bottom: 0; background: #f6f6f6;">
-            <button @click="addToCart" class="btn w-100 d-flex justify-content-center align-items-center text-center"
-                style="background-color: #F4B700;">
-                <i class="bi bi-cart fs-5"></i>
-                <p class="text-center m-0 ms-2">Add to cart</p>
+        <div class="w-100 d-flex align-items-center position-fixed p-2"
+            style="z-index: 10; bottom: 0; background: #f6f6f6;">
+            <button @click="enquiry()" class="btn w-100 rounded-0 d-flex justify-content-center align-items-center text-center"
+                style="background-color: #FEBF00;">
+                <i class="bi bi-whatsapp fs-5"></i>
+                <p class="text-center m-0 ms-2">Enquiry</p>
             </button>
         </div>
     </div>
@@ -90,6 +91,9 @@
 import ProductDetails from '@/components/ProductDetails.vue';
 
 export default {
+    components: {
+        ProductDetails,
+    },
     data() {
         return {
             selectedImage: {},
@@ -97,9 +101,6 @@ export default {
             quantity: 1,
             showPopupCart: false,
         };
-    },
-    components: {
-        ProductDetails,
     },
     mounted() {
         this.selectedImage = this.product.images[0];
@@ -114,39 +115,21 @@ export default {
         selectImage(image) {
             this.selectedImage = image;
         },
-        addToCart() {
-            const productToSave = {
-                productId: this.product.id,
-                name: this.product.name,
-                price: this.product.price,
-                color: this.selectedColor,
-                quantity: this.quantity,
-                image: this.selectedImage,
-            };
+        enquiry() {
+            // Construct the message for WhatsApp
+            const message = `Hello, I am interested in this product:
+                Product Name: ${this.product.name}
+                Category: ${this.product.category}
+                Price: ₹${this.product.price}
+                Color: ${this.selectedColor ? this.selectedColor.name : 'N/A'}
+                Quantity: ${this.quantity}`;
 
-            // Get current cart from localStorage
-            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            // WhatsApp URL with specific number
+            const whatsappURL = `https://wa.me/918826658501?text=${encodeURIComponent(message)}`;
 
-            // Check if product already exists in the cart with the same color
-            const existingProductIndex = cart.findIndex(
-                item => item.productId === productToSave.productId && item.color === productToSave.color
-            );
-
-            if (existingProductIndex >= 0) {
-                // Update quantity if the product already exists in the cart
-                cart[existingProductIndex].quantity += productToSave.quantity;
-            } else {
-                // Add new product to cart
-                cart.push(productToSave);
-            }
-
-            // Save updated cart back to localStorage
-            localStorage.setItem('cart', JSON.stringify(cart));
-
-            // Show popup to confirm addition
-            this.showPopupCart = true;
-            setTimeout(() => (this.showPopupCart = false), 2000);
-        },
+            // Open WhatsApp
+            window.open(whatsappURL, '_blank');
+        }
     },
 };
 </script>

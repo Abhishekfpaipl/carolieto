@@ -29,22 +29,22 @@ export default {
                     name: 'Shop'
                 },
                 {
-                    path: '/categories',
+                    path: '/category',
                     icon: 'bi-grid-1x2',
                     name: 'Category'
                 },
                 {
-                    path: '/cart',
-                    icon: 'bi-cart',
-                    name: 'Cart'
+                    path: '/search',
+                    icon: 'bi-search',
+                    name: 'Search'
                 },
                 {
-                    path: '/support',
+                    path: '/contact-us',
                     icon: 'bi-chat',
                     name: 'Support'
                 },
                 {
-                    path: '/about',
+                    path: '/about-us',
                     icon: 'bi-globe-central-south-asia',
                     name: 'About'
                 },
