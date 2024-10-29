@@ -16,7 +16,7 @@
             </router-link>
             <div class="d-flex">
                 <div class="text-center position-relative">
-                    <router-link to="/search
+                    <router-link to="/search">
                         <i class="bi bi-search fs-4 mx-2" style="color: var(--primary-color);"></i>
                     </router-link>
                 </div>
