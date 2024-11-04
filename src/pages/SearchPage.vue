@@ -26,7 +26,7 @@
                         <img :src="product.image" :alt="product.name" class="img-fluid rounded-3"
                             style="max-height: 200px;">
                     </div>
-                    <h5 class="text-uppercase mb-2">{{ product.name }}</h5>
+                    <p class="text-start my-2 p-2" style="min-height: 60px;">{{ product.name }}</p>
                     <div class="d-md-flex justify-content-between align-items-center mb-2">
                         <strong><span v-if="product.currency === 'INR'">₹</span> {{ product.price }} <span
                                 v-if="product.currency === 'INR'">{{
@@ -40,13 +40,13 @@
                         </div>
                     </div>
 
-                    <div v-if="product.color" class="d-flex overflow-x-scroll gap-2 mb-3 justify-content-center"
+                    <!-- <div v-if="product.color" class="d-flex overflow-x-scroll gap-2 mb-3 justify-content-center"
                         id="scroll">
                         <img v-for="(color, index) in product.color" :key="index" :src="color.image"
                             class="btn rounded-circle p-0 border-0" style="width:40px;height:40px;">
-                    </div>
+                    </div> -->
 
-                    <p class="text-muted small text-ellipsis3">{{ product.info }}</p>
+                    <!-- <p class="text-muted small text-ellipsis3">{{ product.info }}</p> -->
                 </router-link>
             </div>
         </div>
@@ -59,7 +59,7 @@ export default {
     data() {
         return {
             searchQuery: '',
-            selectedCategory: '', 
+            selectedCategory: '',
         }
     },
     computed: {

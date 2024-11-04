@@ -33,11 +33,13 @@
             </div>
         </div> -->
         <CategoryCard />
-        <ProductCard />
+        <!-- <ProductCard /> -->
         <div class="">
-            <TextVideoSection />
+            <AnimatedTextSection />
         </div>
         <div class="">
+            <TextVideoSection />
+            <RotatingImageSection /> 
             <!-- <VideoMaskSection /> -->
         </div>
     </div>
@@ -46,15 +48,19 @@
 <script>
 // import VideoMaskSection from '@/components/VideoMaskSection.vue'
 import TextVideoSection from '@/components/TextVideoSection.vue'
-import ProductCard from '@/components/ProductCard.vue'
+// import ProductCard from '@/components/ProductCard.vue'
 import CategoryCard from '@/components/CategoryCard.vue'
+import AnimatedTextSection from '@/components/AnimatedTextSection.vue'
+import RotatingImageSection from '@/components/RotatingImageSection.vue'
 export default {
     name: "HomePage",
     components: {
         // VideoMaskSection,
         TextVideoSection,
-        ProductCard,
+        // ProductCard,
         CategoryCard,
+        AnimatedTextSection,
+        RotatingImageSection
     },
     data() {
         return {

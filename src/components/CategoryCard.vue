@@ -10,13 +10,13 @@
                             category.name }}</p>
                     </router-link>
                     <div class="container">
-                        <div class="row row-cols-2 row-col-md-3 row-cols-lg-4 g-1 my-4">
+                        <div class="row row-cols-2 row-col-md-3 row-cols-lg-5 g-2 my-4">
                             <div class="col" v-for="(product, subIndex) in category.products" :key="subIndex">
                                 <router-link :to="'/product-detail/' + product.sid"
-                                    class="card text-decoration-none text-dark">
+                                    class="card text-decoration-none text-dark h-100">
                                     <img :src="product.image" alt="" class="card-img-top"
-                                        style="height: 250px;object-fit: cover; object-position: top;">
-                                    <h6 class="fw-bold my-2 p-2">{{ product.name }}</h6>
+                                        style="height: 250px;object-fit: cover; object-position: top;width: 100%;">
+                                    <p class="text-start my-2 p-2" style="min-height: 60px;">{{ product.name }}</p>
                                     <div class="d-md-flex justify-content-between align-items-center mb-2 p-2">
                                         <strong><span v-if="product.currency === 'INR'">₹</span> {{ product.price }}
                                             <span v-if="product.currency === 'INR'">{{

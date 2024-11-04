@@ -2191,8 +2191,21 @@ export default {
             // Find the subcategory based on `subcategoryId`
             const subCategory = category.sub_category.find(sub => sub.sid === subcategoryId);
             return subCategory ? subCategory.products : [];
-        }
-
+        },
+        // getCategories(state) {
+        //     return state.categories.map(category => ({
+        //         ...category,
+        //         products: state.categories
+        //             .filter(product => product.categoryId === category.sid)
+        //             .map(product => ({
+        //                 ...product,
+        //                 price: state.currency === 'INR'
+        //                     ? product.price
+        //                     : (product.price * state.exchangeRate).toFixed(2),
+        //                 currency: state.currency
+        //             }))
+        //     }));
+        // } 
     },
     mutations: {
         setCurrency(state, currency) {
