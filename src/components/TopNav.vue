@@ -1,27 +1,30 @@
 <template>
     <div class="w-100 position-fixed top-0" style="z-index: 10;">
-        <div class="d-flex justify-content-between align-items-center py-2 px-2"
-            style="background-color: var(--secondary-color);">
-            <div class="d-flex align-items-center">
+        <div class="d-flex justify-content-center align-items-center py-2 px-2"
+            style="background-color: var(--secondary-color); position: relative;">
+            <!-- List icon positioned to the left -->
+            <div class="d-flex align-items-center" style="position: absolute; left: 10px;">
                 <i data-bs-toggle="offcanvas" data-bs-target="#topSideMenu" aria-controls="topSideMenu"
                     class="bi bi-list fs-4 mx-2" style="color: var(--primary-color);"></i>
             </div>
+            <!-- Centered logo for larger screens -->
             <router-link to="/" class="d-none d-lg-flex align-items-center text-decoration-none">
-                <img src="https://carolieto.com/uploads/logo.png" alt="Brand Lgo"
-                    style="height: 44px;object-fit: contain;">
+                <img src="https://carolieto.com/uploads/logo.png" alt="Brand Logo"
+                    style="height: 44px; object-fit: contain;">
             </router-link>
+            <!-- Centered logo for smaller screens -->
             <router-link to="/" class="d-flex d-lg-none align-items-center text-decoration-none">
                 <img src="https://carolieto.com/uploads/logo.png" alt="Brand Logo"
-                    style="height: 42px;object-fit: contain;">
+                    style="height: 42px; object-fit: contain;">
             </router-link>
-            <div class="d-flex">
-                <div class="text-center position-relative">
-                    <router-link to="/search">
-                        <i class="bi bi-search fs-4 mx-2" style="color: var(--primary-color);"></i>
-                    </router-link>
-                </div>
-            </div>
         </div>
+        <!-- <div class="d-flex">
+            <div class="text-center position-relative">
+                <router-link to="/search">
+                    <i class="bi bi-search fs-4 mx-2" style="color: var(--primary-color);"></i>
+                </router-link>
+            </div>
+        </div> -->
 
         <!-- SideMenu Offcanvas -->
         <div class="offcanvas offcanvas-start" tabindex="-1" id="topSideMenu" aria-labelledby="topSideMenuLabel">

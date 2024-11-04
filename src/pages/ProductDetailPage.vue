@@ -16,7 +16,6 @@
                         <p class="mb-0 fw-bold fs-4 text-start">{{ product.name }}</p>
                         <small class="text-muted">{{ product.category }}</small>
                         <small class="text-muted ms-2">({{ product.sub_category }})</small>
-                        <p class="mb-0 fs-4 fw-bold text-start">₹ {{ product.price }}</p>
                     </div>
                     <div class="d-flex gap-2 fs-5">
                         <div class="d-flex gap-2 fs-5">
@@ -24,6 +23,14 @@
                         </div>
                     </div>
                 </div>
+                <a href="#reviews"
+                    class="bg-white p-2 d-flex justify-content-between align-items-center text-dark text-decoration-none">
+                    <p class="mb-0 fs-4 fw-bold text-start">₹ {{ product.price }}</p>
+                    <div class="d-flex align-items-center">
+                        <p class="mb-0 me-2 ">Reviews ({{ product.reviews.length }})</p>
+                        <i v-for="n in 5" :key="n" class="bi bi-star-fill"> </i>
+                    </div>
+                </a>
                 <p v-if="product.info" class="text-start mb-0 px-2">{{ product.info }}</p>
                 <p v-else class="px-2 mb-0 text-start">Lorem ipsum dolor sit amet consectetur adipisicing elit.
                     Officiis animi eum repudiandae non molestias adipisci cupiditate numquam. Impedit
@@ -78,21 +85,25 @@
     <div class="d-md-none">
         <div class="w-100 d-flex align-items-center position-fixed p-2"
             style="z-index: 10; bottom: 0; background: #f6f6f6;">
-            <button @click="enquiry()" class="btn w-100 rounded-0 d-flex justify-content-center align-items-center text-center"
+            <button @click="enquiry()"
+                class="btn w-100 rounded-0 d-flex justify-content-center align-items-center text-center"
                 style="background-color: #FEBF00;">
                 <i class="bi bi-whatsapp fs-5"></i>
                 <p class="text-center m-0 ms-2">Enquiry</p>
             </button>
         </div>
     </div>
+    <ProductReview :product="product" />
 </template>
 
 <script>
 import ProductDetails from '@/components/ProductDetails.vue';
+import ProductReview from '@/components/ProductReview.vue';
 
 export default {
     components: {
         ProductDetails,
+        ProductReview,
     },
     data() {
         return {
@@ -163,12 +174,20 @@ export default {
     }
 }
 
-@media (min-width:1000px) {
+@media (min-width: 1000px) {
     .main-img img {
         position: sticky;
         top: 70px;
     }
+
+    .prod-img {
+        position: sticky;
+        top: 70px;
+        /* Adjust the top offset as needed */
+        align-self: flex-start;
+    }
 }
+
 
 #scroll::-webkit-scrollbar {
     background-color: none;

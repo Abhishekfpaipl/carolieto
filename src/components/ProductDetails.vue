@@ -1,6 +1,6 @@
 <template>
     <div class="accordion" id="accordionExample">
-        <div class="accordion-item">
+        <div class="accordion-item mb-5">
             <h2 class="accordion-header">
                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                     data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">

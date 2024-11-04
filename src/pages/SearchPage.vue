@@ -1,6 +1,6 @@
 <template>
     <div class="container mb-5" style="padding-top: 60px;overflow-x: hidden">
-        <h2 class="display-5 text-uppercase" style="color: var(--bg-primary);">Our Products</h2>
+        <!-- <h2 class="display-5 text-uppercase" style="color: var(--bg-primary);">Our Products</h2> -->
 
         <!-- Search and Filter Section -->
         <div class="row my-4">
@@ -22,11 +22,11 @@
             <div v-for="(product, index) in filteredProducts" :key="index" class="col">
                 <router-link :to="'/product-detail/' + product.sid"
                     class="card h-100 product-card rounded-4 p-3 bg-light text-decoration-none">
-                    <div class="position-absolute top-0 end-0 p-2">
+                    <!-- <div class="position-absolute top-0 end-0 p-2">
                         <button class="btn btn-link text-decoration-none">
                             <i class="bi bi-heart"></i>
                         </button>
-                    </div>
+                    </div> -->
 
                     <div class="text-center mb-3">
                         <img :src="product.image" :alt="product.name" class="img-fluid rounded-3"

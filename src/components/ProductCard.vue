@@ -1,15 +1,22 @@
 <template>
 
     <div class="container">
+        <dizv class="d-flex justify-content-end align-items-center gap-2 mt-4">
+            <p class=" mb-0">Change currency</p>
+            <select v-model="currency" @change="switchCurrency">
+                <option value="INR">INR</option>
+                <option value="USD">USD</option>
+            </select>
+        </dizv>
         <div class="row row-cols-2 row-cols-md-4 row-cols-lg-4 g-3 my-5 justify-content-center">
             <div v-for="(product, index) in products" :key="index" class="col">
                 <router-link :to="'/product-detail/' + product.sid"
                     class="card h-100 product-card rounded-4 p-3 bg-light text-decoration-none">
-                    <div class="position-absolute top-0 end-0 p-2">
+                    <!-- <div class="position-absolute top-0 end-0 p-2">
                         <button class="btn btn-link text-decoration-none">
                             <i class="bi bi-heart"></i>
                         </button>
-                    </div>
+                    </div> -->
 
                     <div class="text-center mb-3">
                         <img :src="product.image" :alt="product.name" class="img-fluid rounded-3"
@@ -17,7 +24,9 @@
                     </div>
                     <h5 class="text-uppercase mb-2">{{ product.name }}</h5>
                     <div class="d-md-flex justify-content-between align-items-center mb-2">
-                        <strong>₹ {{ product.price.toFixed(2) }} INR</strong>
+                        <strong><span v-if="product.currency === 'INR'">₹</span> {{ product.price.toFixed(2) }} <span
+                                v-if="product.currency === 'INR'">{{
+                                    product.currency }}</span> <span v-else> USD</span></strong>
                         <div class="small">
                             <i class="bi bi-star-fill text-warning"></i>
                             <i class="bi bi-star-fill text-warning"></i>
@@ -27,7 +36,8 @@
                         </div>
                     </div>
 
-                    <div v-if="product.color" class="d-flex overflow-x-scroll gap-2 mb-3 justify-content-center" id="scroll">
+                    <div v-if="product.color" class="d-flex overflow-x-scroll gap-2 mb-3 justify-content-center"
+                        id="scroll">
                         <img v-for="(color, index) in product.color" :key="index" :src="color.image"
                             class="btn rounded-circle p-0 border-0" style="width:40px;height:40px;">
                     </div>
@@ -40,6 +50,7 @@
 </template>
 
 <script>
+import { mapGetters, } from 'vuex';
 export default {
     name: 'ProductCard',
     data() {
@@ -47,9 +58,19 @@ export default {
         }
     },
     computed: {
+        ...mapGetters(['getProducts']),
         products() {
-            return this.$store.getters.getProducts
+            return this.getProducts;
+        },
+        currency() {
+            return this.$store.state.currency;
         }
+    },
+    methods: {
+        switchCurrency() {
+            this.$store.dispatch('switchCurrency');
+        }
+        // ...mapActions(['switchCurrency']),
     },
 }
 </script>

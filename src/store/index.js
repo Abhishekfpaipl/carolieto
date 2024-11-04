@@ -3,6 +3,9 @@ import { createStore } from "vuex";
 import category from "./category";
 export default createStore({
   state: {
+
+    currency: 'INR',
+    exchangeRate: 0.012,
     products: [
       {
         sid: "luca",
@@ -58,6 +61,32 @@ export default createStore({
           { name: 'Fitness', value: 'Slim Fit' },
           { name: 'Belt', value: 'No' },
         ],
+        reviews: [
+          {
+            title: "Excellent Quality and Service",
+            name: "Rita Kumar",
+            description: "Carolieto has an impressive selection of bath fixtures, and the quality truly stands out. The staff was helpful, guiding me to make the perfect choices for my home.",
+            rating: 5,
+          },
+          {
+            title: "Trendy and Functional Designs",
+            name: "Amit Joshi",
+            description: "The showroom is a hub for innovative and stylish designs. I found beautiful faucets and accessories that add a modern touch to my bathroom. Highly recommend Carolieto!",
+            rating: 4,
+          },
+          {
+            title: "One-Stop Solution for Bathroom Needs",
+            name: "Sneha Verma",
+            description: "Carolieto provides everything you need to create a sophisticated bathroom. From sleek basins to practical fixtures, their products are top-notch and well-crafted.",
+            rating: 5,
+          },
+          {
+            title: "Value for Money",
+            name: "Rajesh Malhotra",
+            description: "The prices are very reasonable for the quality offered. The bath fittings are durable, stylish, and definitely worth every penny. Carolieto exceeded my expectations!",
+            rating: 4,
+          },
+        ]
       },
       {
         sid: "novice",
@@ -113,6 +142,34 @@ export default createStore({
           { name: 'Fitness', value: 'Slim Fit' },
           { name: 'Belt', value: 'No' },
         ],
+        reviews: [
+
+          {
+            title: "One-Stop Solution for Bathroom Needs",
+            name: "Sneha Verma",
+            description: "Carolieto provides everything you need to create a sophisticated bathroom. From sleek basins to practical fixtures, their products are top-notch and well-crafted.",
+            rating: 5,
+          },
+          {
+            title: "Value for Money",
+            name: "Rajesh Malhotra",
+            description: "The prices are very reasonable for the quality offered. The bath fittings are durable, stylish, and definitely worth every penny. Carolieto exceeded my expectations!",
+            rating: 4,
+          },
+          {
+            title: "Wide Range and Great Support",
+            name: "Neha Sharma",
+            description: "Loved the variety Carolieto offers. The staff was attentive and knowledgeable, making my shopping experience smooth and enjoyable. Will surely return for future needs!",
+            rating: 5,
+          },
+          {
+            title: "Top-notch Bath Accessories",
+            name: "Puneet Kapoor",
+            description: "Carolieto's accessories are high-quality and durable. The designs are modern, and the prices are fair for what you get. Perfect place for any bathroom upgrade.",
+            rating: 4,
+          }
+        ]
+
       },
       {
         sid: "ccs-001",
@@ -168,6 +225,33 @@ export default createStore({
           { name: 'Fitness', value: 'Slim Fit' },
           { name: 'Belt', value: 'No' },
         ],
+        reviews: [
+          {
+            title: "Excellent Quality and Service",
+            name: "Rita Kumar",
+            description: "Carolieto has an impressive selection of bath fixtures, and the quality truly stands out. The staff was helpful, guiding me to make the perfect choices for my home.",
+            rating: 4,
+          },
+          {
+            title: "Trendy and Functional Designs",
+            name: "Amit Joshi",
+            description: "The showroom is a hub for innovative and stylish designs. I found beautiful faucets and accessories that add a modern touch to my bathroom. Highly recommend Carolieto!",
+            rating: 4,
+          },
+          {
+            title: "One-Stop Solution for Bathroom Needs",
+            name: "Sneha Verma",
+            description: "Carolieto provides everything you need to create a sophisticated bathroom. From sleek basins to practical fixtures, their products are top-notch and well-crafted.",
+            rating: 5,
+          },
+          {
+            title: "Top-notch Bath Accessories",
+            name: "Puneet Kapoor",
+            description: "Carolieto's accessories are high-quality and durable. The designs are modern, and the prices are fair for what you get. Perfect place for any bathroom upgrade.",
+            rating: 5,
+          }
+        ]
+
       },
       {
         sid: "kitchen-tap",
@@ -207,6 +291,34 @@ export default createStore({
           { name: 'Fitness', value: 'Slim Fit' },
           { name: 'Belt', value: 'No' },
         ],
+        reviews: [
+          {
+            title: "Excellent Quality and Service",
+            name: "Rita Kumar",
+            description: "Carolieto has an impressive selection of bath fixtures, and the quality truly stands out. The staff was helpful, guiding me to make the perfect choices for my home.",
+            rating: 4,
+          },
+          {
+            title: "Trendy and Functional Designs",
+            name: "Amit Joshi",
+            description: "The showroom is a hub for innovative and stylish designs. I found beautiful faucets and accessories that add a modern touch to my bathroom. Highly recommend Carolieto!",
+            rating: 4,
+          },
+
+          {
+            title: "Wide Range and Great Support",
+            name: "Neha Sharma",
+            description: "Loved the variety Carolieto offers. The staff was attentive and knowledgeable, making my shopping experience smooth and enjoyable. Will surely return for future needs!",
+            rating: 4.5,
+          },
+          {
+            title: "Top-notch Bath Accessories",
+            name: "Puneet Kapoor",
+            description: "Carolieto's accessories are high-quality and durable. The designs are modern, and the prices are fair for what you get. Perfect place for any bathroom upgrade.",
+            rating: 3,
+          }
+        ]
+
       },
       {
         sid: "dionysus",
@@ -259,6 +371,27 @@ export default createStore({
           { name: 'Fitness', value: 'Slim Fit' },
           { name: 'Belt', value: 'No' },
         ],
+        reviews: [
+          {
+            title: "Excellent Quality and Service",
+            name: "Rita Kumar",
+            description: "Carolieto has an impressive selection of bath fixtures, and the quality truly stands out. The staff was helpful, guiding me to make the perfect choices for my home.",
+            rating: 4.5,
+          },
+          {
+            title: "Trendy and Functional Designs",
+            name: "Amit Joshi",
+            description: "The showroom is a hub for innovative and stylish designs. I found beautiful faucets and accessories that add a modern touch to my bathroom. Highly recommend Carolieto!",
+            rating: 4,
+          },
+          {
+            title: "One-Stop Solution for Bathroom Needs",
+            name: "Sneha Verma",
+            description: "Carolieto provides everything you need to create a sophisticated bathroom. From sleek basins to practical fixtures, their products are top-notch and well-crafted.",
+            rating: 3,
+          },
+        ]
+
       },
       {
         sid: "focal-tri",
@@ -311,6 +444,22 @@ export default createStore({
           { name: 'Fitness', value: 'Slim Fit' },
           { name: 'Belt', value: 'No' },
         ],
+        reviews: [
+
+          {
+            title: "Wide Range and Great Support",
+            name: "Neha Sharma",
+            description: "Loved the variety Carolieto offers. The staff was attentive and knowledgeable, making my shopping experience smooth and enjoyable. Will surely return for future needs!",
+            rating: 4,
+          },
+          {
+            title: "Top-notch Bath Accessories",
+            name: "Puneet Kapoor",
+            description: "Carolieto's accessories are high-quality and durable. The designs are modern, and the prices are fair for what you get. Perfect place for any bathroom upgrade.",
+            rating: 5,
+          }
+        ]
+
       },
       {
         sid: "8x8-inch-square",
@@ -346,6 +495,33 @@ export default createStore({
           { name: 'Fitness', value: 'Slim Fit' },
           { name: 'Belt', value: 'No' },
         ],
+        reviews: [
+          {
+            title: "Excellent Quality and Service",
+            name: "Rita Kumar",
+            description: "Carolieto has an impressive selection of bath fixtures, and the quality truly stands out. The staff was helpful, guiding me to make the perfect choices for my home.",
+            rating: 4,
+          },
+          {
+            title: "Value for Money",
+            name: "Rajesh Malhotra",
+            description: "The prices are very reasonable for the quality offered. The bath fittings are durable, stylish, and definitely worth every penny. Carolieto exceeded my expectations!",
+            rating: 4.5,
+          },
+          {
+            title: "Wide Range and Great Support",
+            name: "Neha Sharma",
+            description: "Loved the variety Carolieto offers. The staff was attentive and knowledgeable, making my shopping experience smooth and enjoyable. Will surely return for future needs!",
+            rating: 4,
+          },
+          {
+            title: "Top-notch Bath Accessories",
+            name: "Puneet Kapoor",
+            description: "Carolieto's accessories are high-quality and durable. The designs are modern, and the prices are fair for what you get. Perfect place for any bathroom upgrade.",
+            rating: 4,
+          }
+        ]
+
       },
       {
         sid: "safari",
@@ -380,6 +556,28 @@ export default createStore({
           { name: 'Fitness', value: 'Slim Fit' },
           { name: 'Belt', value: 'No' },
         ],
+        reviews: [
+          {
+            title: "Excellent Quality and Service",
+            name: "Rita Kumar",
+            description: "Carolieto has an impressive selection of bath fixtures, and the quality truly stands out. The staff was helpful, guiding me to make the perfect choices for my home.",
+            rating: 5,
+          },
+          {
+            title: "Trendy and Functional Designs",
+            name: "Amit Joshi",
+            description: "The showroom is a hub for innovative and stylish designs. I found beautiful faucets and accessories that add a modern touch to my bathroom. Highly recommend Carolieto!",
+            rating: 4,
+          },
+
+          {
+            title: "Top-notch Bath Accessories",
+            name: "Puneet Kapoor",
+            description: "Carolieto's accessories are high-quality and durable. The designs are modern, and the prices are fair for what you get. Perfect place for any bathroom upgrade.",
+            rating: 4,
+          }
+        ]
+
       },
       {
         sid: "mercury",
@@ -414,19 +612,58 @@ export default createStore({
           { name: 'Fitness', value: 'Slim Fit' },
           { name: 'Belt', value: 'No' },
         ],
+        reviews: [
+          {
+            title: "Excellent Quality and Service",
+            name: "Rita Kumar",
+            description: "Carolieto has an impressive selection of bath fixtures, and the quality truly stands out. The staff was helpful, guiding me to make the perfect choices for my home.",
+            rating: 4,
+          },
+
+          {
+            title: "Wide Range and Great Support",
+            name: "Neha Sharma",
+            description: "Loved the variety Carolieto offers. The staff was attentive and knowledgeable, making my shopping experience smooth and enjoyable. Will surely return for future needs!",
+            rating: 5,
+          },
+          {
+            title: "Top-notch Bath Accessories",
+            name: "Puneet Kapoor",
+            description: "Carolieto's accessories are high-quality and durable. The designs are modern, and the prices are fair for what you get. Perfect place for any bathroom upgrade.",
+            rating: 5,
+          }
+        ]
+
       },
     ]
   },
   getters: {
-    getProducts: state => state.products,
+    // getProducts: state => state.products,
+    getProducts(state) {
+      return state.products.map(product => {
+        return {
+          ...product,
+          price: state.currency === 'INR'
+            ? product.price
+            : (product.price * state.exchangeRate),
+          currency: state.currency
+        };
+      });
+    },
     getProduct: (state) => (productId) => {
       let index = state.products.findIndex(product => product.sid == productId);
       return state.products[index];
     },
   },
   mutations: {
+    setCurrency(state, currency) {
+      state.currency = currency;
+    },
   },
   actions: {
+    switchCurrency({ commit }, currency) {
+      commit('setCurrency', currency);
+    },
   },
   modules: {
     category: category,
