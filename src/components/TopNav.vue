@@ -30,12 +30,20 @@
                 <img src="https://carolieto.com/uploads/logo.png" alt="Brand Logo"
                     style="height: 42px; object-fit: contain;">
             </router-link>
-            <div class="form-check form-switch mb-0">
-                <input class="form-check-input" type="checkbox" role="switch" id="currencySwitch"
+            <div class="d-flex gap-2 align-items-center ">
+                <div class="form-check form-switch mb-0">
+                    <label class="form-check-label" for="currencySwitch" style="color: var(--primary-color)">
+                        {{ currency }}
+                    </label>
+                    <input class="form-check-input" type="checkbox" role="switch" id="currencySwitch"
                     @change="toggleCurrency" :checked="currency === 'USD'" />
-                <label class="form-check-label" for="currencySwitch" style="color: var(--primary-color)">
-                    {{ currency }}
-                </label>
+                </div>
+                
+                <div class="d-md-block d-none">
+                    <router-link to="/search">
+                        <i class="bi bi-search fs-4 mx-2" style="color: var(--primary-color);"></i>
+                    </router-link>
+                </div>
             </div>
         </div>
         <!-- <div class="d-flex">
@@ -128,8 +136,8 @@ export default {
                 },
                 {
                     name: 'Category',
-                    icon: 'bi bi-grid ',
-                    router: '/grid'
+                    icon: 'bi bi-arrow-right ',
+                    router: '/category'
                 },
                 // {
                 //     name: 'Career',
@@ -183,5 +191,4 @@ export default {
         transform: scale(1.1);
     }
 }
-
 </style>

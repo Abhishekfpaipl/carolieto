@@ -1,21 +1,36 @@
 <template>
     <div>
-        <div class="container">
+        <div class="container-fluid px-0">
             <div class="row">
                 <div class="col-12" v-for="(category, index) in categories" :key="index">
-                    <div class="position-relative">
+                    <router-link :to="'/category-list/' + category.sid" class="position-relative category-banner">
                         <img :src="category.image" alt="" class=""
-                            style="height: 400px;width: 100%; object-fit: cover;object-position: left;">
+                            style="height: 300px;width: 100%; object-fit: cover;object-position: left;">
                         <p class="position-absolute text-white fs-1 mb-0" style="right: 10%;top: 40%; bottom: 50%;">{{
                             category.name }}</p>
-                    </div>
-                    <div class="row row-cols-2 row-col-md-3 row-cols-lg-4 g-1 my-4">
-                        <div class="col" v-for="(category, subIndex) in category.sub_category" :key="subIndex">
-                            <router-link :to="'/category-list/' + category.sid"
-                                class="card text-decoration-none text-dark">
-                                <img :src="category.image" alt="" class="card-img-top" style="height: 250px;object-fit: cover;">
-                                <h6 class="fw-bold my-2">{{ category.name }}</h6>
-                            </router-link>
+                    </router-link>
+                    <div class="container">
+                        <div class="row row-cols-2 row-col-md-3 row-cols-lg-4 g-1 my-4">
+                            <div class="col" v-for="(product, subIndex) in category.products" :key="subIndex">
+                                <router-link :to="'/product-detail/' + product.sid"
+                                    class="card text-decoration-none text-dark">
+                                    <img :src="product.image" alt="" class="card-img-top"
+                                        style="height: 250px;object-fit: cover; object-position: top;">
+                                    <h6 class="fw-bold my-2 p-2">{{ product.name }}</h6>
+                                    <div class="d-md-flex justify-content-between align-items-center mb-2 p-2">
+                                        <strong><span v-if="product.currency === 'INR'">₹</span> {{ product.price }}
+                                            <span v-if="product.currency === 'INR'">{{
+                                                product.currency }}</span> <span v-else> USD</span></strong>
+                                        <div class="small">
+                                            <i class="bi bi-star-fill text-warning"></i>
+                                            <i class="bi bi-star-fill text-warning"></i>
+                                            <i class="bi bi-star-fill text-warning"></i>
+                                            <i class="bi bi-star-fill text-warning"></i>
+                                            <i class="bi bi-star-fill text-warning"></i>
+                                        </div>
+                                    </div>
+                                </router-link>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -34,55 +49,9 @@ export default {
 }
 </script>
 <style scoped>
-.category-grid {
-    background-color: #f8f9fa;
-    min-height: 100vh;
-}
-
-.category-card {
-    border-radius: 20px;
-    padding: 2rem 1rem;
-    text-align: center;
-    transition: all 0.3s ease;
-    cursor: pointer;
-    height: 160px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-}
-
-.category-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-}
-
-
-@media (max-width: 767.98px) {
-    .category-card {
-        height: 140px;
-        padding: 1.5rem 1rem;
-    }
-
-    .icon-circle {
-        width: 40px;
-        height: 40px;
-    }
-
-    .icon-circle i {
-        font-size: 1.2rem;
-    }
-
-    .category-name {
-        font-size: 0.9rem;
-    }
-}
-
-@media (max-width: 575.98px) {
-    .category-card {
-        height: 120px;
-        padding: 1rem;
+@media (max-width:768px) {
+    .category-banner img {
+        height: 200px !important;
     }
 }
 </style>
