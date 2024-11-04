@@ -32,26 +32,29 @@
                 </div>
             </div>
         </div> -->
+        <CategoryCard />
         <ProductCard />
         <div class="">
             <TextVideoSection />
         </div>
         <div class="">
-            <!-- <VideoMaskSection /> --> 
+            <!-- <VideoMaskSection /> -->
         </div>
     </div>
 </template>
 
 <script>
 // import VideoMaskSection from '@/components/VideoMaskSection.vue'
-import TextVideoSection from '@/components/TextVideoSection.vue' 
+import TextVideoSection from '@/components/TextVideoSection.vue'
 import ProductCard from '@/components/ProductCard.vue'
+import CategoryCard from '@/components/CategoryCard.vue'
 export default {
     name: "HomePage",
     components: {
         // VideoMaskSection,
-        TextVideoSection, 
+        TextVideoSection,
         ProductCard,
+        CategoryCard,
     },
     data() {
         return {

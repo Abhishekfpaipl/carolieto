@@ -80,4 +80,9 @@ export default {
 .form-control {
   box-shadow: none !important;
 }
+
+.form-check-input:checked {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+}
 </style>

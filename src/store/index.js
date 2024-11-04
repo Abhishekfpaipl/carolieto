@@ -650,10 +650,27 @@ export default createStore({
         };
       });
     },
+    // getProduct: (state) => (productId) => {
+    //   let index = state.products.findIndex(product => product.sid == productId);
+    //   return state.products[index];
+    // },
     getProduct: (state) => (productId) => {
-      let index = state.products.findIndex(product => product.sid == productId);
-      return state.products[index];
-    },
+      const index = state.products.findIndex(product => product.sid === productId);
+      if (index === -1) return null; // Return null if the product is not found
+
+      const product = state.products[index];
+
+      // Assuming you have a conversion rate in your state
+      const conversionRate = state.currency === 'USD' ? 0.012 : 1; // Example rate: 1 INR = 0.012 USD
+
+      // Return the product with the adjusted price based on currency
+      return {
+        ...product,
+        price: (product.price * conversionRate).toFixed(2), // Adjust price for selected currency
+        currency: state.currency
+      };
+    }
+
   },
   mutations: {
     setCurrency(state, currency) {

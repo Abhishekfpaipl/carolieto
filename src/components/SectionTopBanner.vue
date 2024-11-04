@@ -1,6 +1,6 @@
 <template>
     <div class="banner-container">
-        <img src="https://carolieto.com/uploads/about/1708508359_1705298177_site-header.jpg" alt="Product Banner"
+        <img src="/img/banner.jpg" alt="Product Banner"
             class="banner-image">
         <div class="overlay">
             <h1 class="display-1 banner-title">{{ pageName }}</h1>

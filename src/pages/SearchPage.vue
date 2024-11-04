@@ -22,19 +22,15 @@
             <div v-for="(product, index) in filteredProducts" :key="index" class="col">
                 <router-link :to="'/product-detail/' + product.sid"
                     class="card h-100 product-card rounded-4 p-3 bg-light text-decoration-none">
-                    <!-- <div class="position-absolute top-0 end-0 p-2">
-                        <button class="btn btn-link text-decoration-none">
-                            <i class="bi bi-heart"></i>
-                        </button>
-                    </div> -->
-
                     <div class="text-center mb-3">
                         <img :src="product.image" :alt="product.name" class="img-fluid rounded-3"
                             style="max-height: 200px;">
                     </div>
                     <h5 class="text-uppercase mb-2">{{ product.name }}</h5>
                     <div class="d-md-flex justify-content-between align-items-center mb-2">
-                        <strong>₹ {{ product.price.toFixed(2) }} INR</strong>
+                        <strong><span v-if="product.currency === 'INR'">₹</span> {{ product.price }} <span
+                                v-if="product.currency === 'INR'">{{
+                                    product.currency }}</span> <span v-else> USD</span></strong>
                         <div class="small">
                             <i class="bi bi-star-fill text-warning"></i>
                             <i class="bi bi-star-fill text-warning"></i>
@@ -63,18 +59,7 @@ export default {
     data() {
         return {
             searchQuery: '',
-            selectedCategory: '',
-            // categories: [
-            //     { name: 'Shower', sid: 'shower' },
-            //     { name: 'Kitchen', sid: 'kitchen' },
-            //     { name: 'Diverters & Mixers', sid: 'diverters-mixers' },
-            //     { name: 'Faucets', sid: 'faucets' },
-            //     { name: 'Basin', sid: 'basin' },
-            //     { name: 'Water Closet', sid: 'water-closet' },
-            //     { name: 'Wellness', sid: 'wellness' },
-            //     { name: 'Bath Tub', sid: 'bath-tub' },
-            //     { name: 'Accessories', sid: 'accessories' }
-            // ]
+            selectedCategory: '', 
         }
     },
     computed: {

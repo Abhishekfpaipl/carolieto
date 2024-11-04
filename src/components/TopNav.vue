@@ -1,22 +1,42 @@
 <template>
     <div class="w-100 position-fixed top-0" style="z-index: 10;">
-        <div class="d-flex justify-content-center align-items-center py-2 px-2"
+        <!-- <div class="d-flex justify-content-center align-items-center py-2 px-2"
             style="background-color: var(--secondary-color); position: relative;">
-            <!-- List icon positioned to the left -->
+            
             <div class="d-flex align-items-center" style="position: absolute; left: 10px;">
                 <i data-bs-toggle="offcanvas" data-bs-target="#topSideMenu" aria-controls="topSideMenu"
                     class="bi bi-list fs-4 mx-2" style="color: var(--primary-color);"></i>
             </div>
-            <!-- Centered logo for larger screens -->
+            
             <router-link to="/" class="d-none d-lg-flex align-items-center text-decoration-none">
                 <img src="https://carolieto.com/uploads/logo.png" alt="Brand Logo"
                     style="height: 44px; object-fit: contain;">
-            </router-link>
-            <!-- Centered logo for smaller screens -->
+            </router-link> 
+
             <router-link to="/" class="d-flex d-lg-none align-items-center text-decoration-none">
                 <img src="https://carolieto.com/uploads/logo.png" alt="Brand Logo"
                     style="height: 42px; object-fit: contain;">
             </router-link>
+        </div> -->
+        <div class="d-flex justify-content-between align-items-center p-2"
+            style="background-color: var(--secondary-color)">
+            <i data-bs-toggle="offcanvas" data-bs-target="#topSideMenu" aria-controls="topSideMenu"
+                class="bi bi-list fs-4 mx-2" style="color: var(--primary-color);"></i>
+            <router-link to="/" class="d-none d-lg-flex align-items-center text-decoration-none">
+                <img src="https://carolieto.com/uploads/logo.png" alt="Brand Logo"
+                    style="height: 44px; object-fit: contain;">
+            </router-link>
+            <router-link to="/" class="d-flex d-lg-none align-items-center text-decoration-none">
+                <img src="https://carolieto.com/uploads/logo.png" alt="Brand Logo"
+                    style="height: 42px; object-fit: contain;">
+            </router-link>
+            <div class="form-check form-switch mb-0">
+                <input class="form-check-input" type="checkbox" role="switch" id="currencySwitch"
+                    @change="toggleCurrency" :checked="currency === 'USD'" />
+                <label class="form-check-label" for="currencySwitch" style="color: var(--primary-color)">
+                    {{ currency }}
+                </label>
+            </div>
         </div>
         <!-- <div class="d-flex">
             <div class="text-center position-relative">
@@ -83,6 +103,7 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex';
 export default {
     name: 'TopNav',
     data() {
@@ -105,6 +126,11 @@ export default {
                     icon: 'bi bi-arrow-right ',
                     router: '/contact-us'
                 },
+                {
+                    name: 'Category',
+                    icon: 'bi bi-grid ',
+                    router: '/grid'
+                },
                 // {
                 //     name: 'Career',
                 //     icon: 'bi bi-arrow-right ',
@@ -114,7 +140,18 @@ export default {
 
         }
     },
-    methods: {}
+    computed: {
+        currency() {
+            return this.$store.state.currency;
+        }
+    },
+    methods: {
+        ...mapActions(['switchCurrency']),
+        toggleCurrency() {
+            const newCurrency = this.currency === 'INR' ? 'USD' : 'INR';
+            this.switchCurrency(newCurrency);
+        }
+    },
 }
 </script>
 
@@ -146,4 +183,5 @@ export default {
         transform: scale(1.1);
     }
 }
+
 </style>

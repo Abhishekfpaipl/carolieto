@@ -1,13 +1,13 @@
 <template>
-    <div class="prod container bg-light mt-3" style="padding-top: 60px;">
+    <div class="container bg-light mt-3" style="padding-top: 60px;">
         <div class="row">
-            <div class="col-md-4 d-flex prod-img">
-                <div class="d-flex flex-column prod-thumb" id="scroll">
-                    <img :src="image" style="width: 60px" v-for="(image, index) in product.images" :key="index"
-                        v-on:click="selectImage(image)" />
-                </div>
+            <div class="col-md-4 d-flex flex-column prod-img">
                 <div class="ms-2 main-img">
                     <img :src="selectedImage" class="flex-fill" style="width: 100%;" />
+                </div>
+                <div class="d-flex justify-content-center mt-2" id="scroll">
+                    <img :src="image" style="width: 60px" v-for="(image, index) in product.images" :key="index"
+                        v-on:click="selectImage(image)" />
                 </div>
             </div>
             <div class="col-md-8 prod-details">
@@ -25,7 +25,9 @@
                 </div>
                 <a href="#reviews"
                     class="bg-white p-2 d-flex justify-content-between align-items-center text-dark text-decoration-none">
-                    <p class="mb-0 fs-4 fw-bold text-start">₹ {{ product.price }}</p>
+                    <strong class="text-start"><span v-if="product.currency === 'INR'">₹</span> {{ product.price }}
+                        <span v-if="product.currency === 'INR'">{{
+                            product.currency }}</span> <span v-else> USD</span></strong>
                     <div class="d-flex align-items-center">
                         <p class="mb-0 me-2 ">Reviews ({{ product.reviews.length }})</p>
                         <i v-for="n in 5" :key="n" class="bi bi-star-fill"> </i>
@@ -146,34 +148,6 @@ export default {
 </script>
 
 <style scoped>
-@media (max-width:999px) {
-    .prod {
-        padding-top: 45px !important;
-    }
-
-    .prod-img {
-        display: flex;
-        flex-direction: column-reverse;
-        padding: 0px !important;
-    }
-
-    .prod-thumb {
-        flex-direction: row !important;
-        gap: 1rem;
-        margin: 1rem 2rem 1rem 2rem;
-        overflow: scroll;
-    }
-
-    .main-img {
-        width: 100%;
-        margin-left: 0px !important;
-    }
-
-    .prod-details {
-        padding: 16px 0;
-    }
-}
-
 @media (min-width: 1000px) {
     .main-img img {
         position: sticky;
