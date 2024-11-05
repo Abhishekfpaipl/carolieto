@@ -1,96 +1,45 @@
-<!-- VideoImageMask.vue -->
 <template>
-    <div class="mask-container">
-        <div class="video-wrapper">
-            <video class="background-video" autoplay loop muted playsinline>
-                <source :src="videoSource" type="video/mp4">
-                Your browser does not support the video tag.
+    <div class="container d-flex justify-content-center align-items-center mb-5">
+
+        <div class="bg-video mb-5">
+            <img src="https://carolieto.com/media/logo-t.png" class="mask-image" alt="Logo">
+            <video width="100%" muted autoplay loop playsinline class="">
+                <source src="https://carolieto.com/media/ocean2.mp4" type="video/mp4">
             </video>
-        </div>
-        <div class="logo-mask">
-            <img :src="logoSource" alt="Carolieto" class="mask-image">
         </div>
     </div>
 </template>
 
 <script>
 export default {
-    name: 'VideoImageMask',
-    props: {
-        videoSource: {
-            type: String,
-            required: true,
-            default: 'https://carolieto.com/media/ocean2.mp4'
-        },
-        logoSource: {
-            type: String,
-            required: true,
-            default: 'https://carolieto.com/media/logo-t.png'
-        }
+    name: 'VideoMask',
+    mounted() {
+        const video = this.$el.querySelector('video');
+        video.play().catch(error => {
+            console.error('Error playing video:', error);
+        });
     }
 }
 </script>
-
 <style scoped>
-.mask-container {
+@media (max-width:768px) {
+    .bg-video {
+        width: 100%
+    }
+}
+
+.bg-video {
     position: relative;
-    width: 100%;
-    height: 200px;
+    max-height: 80px;
     overflow: hidden;
-    background: #000;
+    margin: auto !important;
+    width: 500px;
 }
 
-.video-wrapper {
+.bg-video img {
     position: absolute;
     top: 0;
-    left: 0;
+    left: 0%;
     width: 100%;
-    height: 100%;
-}
-
-.background-video {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    min-width: 100%;
-    min-height: 100%;
-    width: auto;
-    height: auto;
-    transform: translate(-50%, -50%);
-    object-fit: cover;
-}
-
-.logo-mask {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.mask-image {
-    height: 80%;
-    width: auto;
-    max-width: 90%;
-    object-fit: contain;
-    mix-blend-mode: screen;
-    -webkit-mask-image: url('https://carolieto.com/media/logo-t.png');
-    mask-image: url('https://carolieto.com/media/logo-t.png');
-    -webkit-mask-size: contain;
-    mask-size: contain;
-    -webkit-mask-repeat: no-repeat;
-    mask-repeat: no-repeat;
-    -webkit-mask-position: center;
-    mask-position: center;
-}
-
-/* Alternative method using background-clip */
-.logo-mask {
-    -webkit-background-clip: text;
-    background-clip: text;
-    mix-blend-mode: screen;
 }
 </style>

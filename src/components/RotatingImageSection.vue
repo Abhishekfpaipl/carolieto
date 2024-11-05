@@ -1,5 +1,5 @@
 <template>
-    <div class="luxury-container position-relative overflow-hidden ">
+    <div class="container luxury-container position-relative overflow-hidden">
         <div class="rotating-bg"></div>
         <h1 class="luxury-text text-center position-relative">
             <span class="d-block  display-1 fw-bold">LIVE THE</span>
@@ -22,6 +22,13 @@ export default {
     justify-content: center;
 }
 
+@media (max-width: 768px) {
+    .rotating-bg {
+        width: 300px !important;
+        height: 300px !important;
+    }
+}
+
 .rotating-bg {
     position: absolute;
     top: 50%;
@@ -37,7 +44,7 @@ export default {
 }
 
 .luxury-text {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif; 
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
     font-weight: bold;
     color: #003366;
     text-transform: uppercase;

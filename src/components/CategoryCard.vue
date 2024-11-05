@@ -16,8 +16,10 @@
                                     class="card text-decoration-none text-dark h-100">
                                     <img :src="product.image" alt="" class="card-img-top"
                                         style="height: 250px;object-fit: cover; object-position: top;width: 100%;">
-                                    <p class="text-start my-2 p-2" style="min-height: 60px;">{{ product.name }}</p>
-                                    <div class="d-md-flex justify-content-between align-items-center mb-2 p-2">
+                                    <p class="text-start my-2 p-2 small" style="min-height: 60px;">{{ product.name }}
+                                    </p>
+                                    <div class="d-flex justify-content-between align-items-center mb-2 p-2">
+                                        <!-- <strong>₹ {{ product.price }} INR</strong> -->
                                         <strong><span v-if="product.currency === 'INR'">₹</span> {{ product.price }}
                                             <span v-if="product.currency === 'INR'">{{
                                                 product.currency }}</span> <span v-else> USD</span></strong>
@@ -43,9 +45,10 @@ export default {
     name: "CategoryCard",
     computed: {
         categories() {
-            return this.$store.getters['category/getCategories']
+            // return this.$store.getters['category/getCategories']
+            return this.$store.getters['categoriesWithCurrency']
         }
-    }
+    },
 }
 </script>
 <style scoped>

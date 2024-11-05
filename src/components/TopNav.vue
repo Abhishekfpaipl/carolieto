@@ -32,7 +32,7 @@
             </router-link>
             <div class="d-flex gap-2 align-items-center ">
                 <div class="form-check form-switch mb-0">
-                    <label class="form-check-label" for="currencySwitch" style="color: var(--primary-color)">
+                    <label class="form-check-label" for="currencySwitch" style="color: var(--primary-color); min-width: 34px;">
                         {{ currency }}
                     </label>
                     <input class="form-check-input" type="checkbox" role="switch" id="currencySwitch"

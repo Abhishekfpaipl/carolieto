@@ -2175,7 +2175,7 @@ export default {
                     },
                 ]
             }
-        ]
+        ],
     },
     getters: {
         getCategories: state => state.categories,
@@ -2192,25 +2192,24 @@ export default {
             const subCategory = category.sub_category.find(sub => sub.sid === subcategoryId);
             return subCategory ? subCategory.products : [];
         },
-        // getCategories(state) {
-        //     return state.categories.map(category => ({
-        //         ...category,
-        //         products: state.categories
-        //             .filter(product => product.categoryId === category.sid)
-        //             .map(product => ({
-        //                 ...product,
-        //                 price: state.currency === 'INR'
-        //                     ? product.price
-        //                     : (product.price * state.exchangeRate).toFixed(2),
-        //                 currency: state.currency
-        //             }))
-        //     }));
-        // } 
+        categoriesWithCurrency(state) {
+            return state.categories.map(category => ({
+                ...category,
+                products: category.products.map(product => ({
+                    ...product,
+                    price: state.currency === 'INR' ? product.price
+                        : (product.price * state.exchangeRate),
+                    currency: state.currency
+                }))
+            }));
+        },
+
+
     },
     mutations: {
         setCurrency(state, currency) {
             state.currency = currency;
-        },
+        }, 
     },
     actions: {
         switchCurrency({ commit }, currency) {

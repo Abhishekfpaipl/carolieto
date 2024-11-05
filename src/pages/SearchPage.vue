@@ -18,16 +18,16 @@
         </div>
 
         <!-- Product Cards Section -->
-        <div class="row row-cols-2 row-cols-md-4 row-cols-lg-4 g-3 my-5 justify-content-center">
+        <div class="row row-cols-2 row-cols-md-3 row-cols-lg-4 g-3 my-5 justify-content-center">
             <div v-for="(product, index) in filteredProducts" :key="index" class="col">
                 <router-link :to="'/product-detail/' + product.sid"
-                    class="card h-100 product-card rounded-4 p-3 bg-light text-decoration-none">
+                    class="card h-100 product-card bg-light text-decoration-none">
                     <div class="text-center mb-3">
-                        <img :src="product.image" :alt="product.name" class="img-fluid rounded-3"
-                            style="max-height: 200px;">
+                        <img :src="product.image" :alt="product.name" class="card-img-top"
+                            style="max-height: 250px;">
                     </div>
                     <p class="text-start my-2 p-2" style="min-height: 60px;">{{ product.name }}</p>
-                    <div class="d-md-flex justify-content-between align-items-center mb-2">
+                    <div class="d-flex justify-content-between align-items-center mb-2 p-2">
                         <strong><span v-if="product.currency === 'INR'">₹</span> {{ product.price }} <span
                                 v-if="product.currency === 'INR'">{{
                                     product.currency }}</span> <span v-else> USD</span></strong>
@@ -89,30 +89,13 @@ export default {
     transform: translateY(-5px);
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
+ 
 
-.quantity-controls button {
-    width: 30px;
-    height: 30px;
-    padding: 0;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.product-card {
-    /* max-width: 300px; */
+.product-card { 
     transition: transform 0.2s;
 }
 
 .product-card:hover {
     transform: translateY(-5px);
-}
-
-.btn-link {
-    color: #888;
-}
-
-.btn-link:hover {
-    color: #ff4444;
-}
+} 
 </style>
