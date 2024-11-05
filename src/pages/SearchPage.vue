@@ -23,10 +23,10 @@
                 <router-link :to="'/product-detail/' + product.sid"
                     class="card h-100 product-card bg-light text-decoration-none">
                     <div class="text-center mb-3">
-                        <img :src="product.image" :alt="product.name" class="card-img-top"
-                            style="max-height: 250px;">
+                        <img :src="product.image" :alt="product.name" class="card-img-top" style="max-height: 250px;">
                     </div>
-                    <p class="text-start my-2 p-2" style="min-height: 60px;">{{ product.name }}</p>
+                    <p class="text-start my-2 px-2 small text-ellipsis2" style="min-height: 42px;">{{ product.name }}
+                    </p>
                     <div class="d-flex justify-content-between align-items-center mb-2 p-2">
                         <strong><span v-if="product.currency === 'INR'">₹</span> {{ product.price }} <span
                                 v-if="product.currency === 'INR'">{{
@@ -89,13 +89,13 @@ export default {
     transform: translateY(-5px);
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
- 
 
-.product-card { 
+
+.product-card {
     transition: transform 0.2s;
 }
 
 .product-card:hover {
     transform: translateY(-5px);
-} 
+}
 </style>
