@@ -33,6 +33,9 @@
             </div>
         </div> -->
         <div class="">
+            <CategoryUiSection />
+        </div>
+        <div class="">
             <AnimatedTextSection />
         </div>
         <!-- <ProductCard /> -->
@@ -54,6 +57,7 @@ import TextVideoSection from '@/components/TextVideoSection.vue'
 import CategoryCard from '@/components/CategoryCard.vue'
 import AnimatedTextSection from '@/components/AnimatedTextSection.vue'
 import RotatingImageSection from '@/components/RotatingImageSection.vue'
+import CategoryUiSection from '@/components/CategoryUiSection.vue'
 export default {
     name: "HomePage",
     components: {
@@ -62,7 +66,8 @@ export default {
         // ProductCard,
         CategoryCard,
         AnimatedTextSection,
-        RotatingImageSection
+        RotatingImageSection,
+        CategoryUiSection,
     },
     data() {
         return {

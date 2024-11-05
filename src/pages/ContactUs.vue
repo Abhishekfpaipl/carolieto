@@ -1,10 +1,10 @@
 <template>
     <div class="" style="padding-top: 60px;overflow-x: hidden;">
         <div class="text-white py-5" style=" background-color:var(--primary-color) ;padding-bottom: 6rem !important;"
-            v-observe>
-            <h1 class="text-center mb-0 fw-bold">Contact Page</h1>
-            <p class="small mb-0 text-capitalize text-center">The secret of getting ahead, is getting started</p>
-        </div>
+        v-observe>
+        <h1 class="text-center mb-0 fw-bold">Contact Page</h1>
+        <p class="small mb-0 text-capitalize text-center">The secret of getting ahead, is getting started</p>
+    </div> 
 
         <div class="container bg-white rounded-top-5 py-5" style="margin-top: -40px;" v-observe>
             <h1 class="text-uppercase mb-4 text-center">Need to get in touch with us?</h1>
@@ -184,9 +184,9 @@
     </div>
 </template>
 
-<script>
+<script> 
 export default {
-    name: 'ContactSection',
+    name: 'ContactSection', 
     data() {
         return {
             formData: {
